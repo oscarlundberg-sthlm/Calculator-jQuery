@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Calc you later</title>
+</head>
+<body>
+    <main id="content-wrapper">
+        <div id="calc-wrapper">
+            <div id="output"><span></span></div>
+            <button class="input" id="plus" data-roles="operator" data-operator="+" value="+"><div><p>+</p></div></button>
+            <button class="input" id="minus" data-roles="operator" data-operator="-" value="-"><div><p>-</p></div></button>
+            <button class="input" id="multi" data-roles="operator" data-operator="*" value="*"><div><p>×</p></div></button>
+            <button class="input" id="division" data-roles="operator" data-operator="/" value="/"><div><p>÷</p></div></button>
+            <button class="input" id="seven" data-roles="number parsable" data-number="7" value="7"><div><p>7</p></div></button>
+            <button class="input" id="eight" data-roles="number parsable" data-number="8" value="8"><div><p>8</p></div></button>
+            <button class="input" id="nine" data-roles="number parsable" data-number="9" value="9"><div><p>9</p></div></button>
+            <button class="input" id="posneg" data-roles="posneg parsable" value="flip-pos-neg"><div><p>&#8314;&#8725;&#8331;</p></div></button>
+            <button class="input" id="four" data-roles="number parsable" data-number="4" value="4"><div><p>4</p></div></button>
+            <button class="input" id="five" data-roles="number parsable" data-number="5" value="5"><div><p>5</p></div></button>
+            <button class="input" id="six" data-roles="number parsable" data-number="6" value="6"><div><p>6</p></div></button>
+            <button class="input" id="one" data-roles="number parsable" data-number="1" value="1"><div><p>1</p></div></button>
+            <button class="input" id="two" data-roles="number parsable" data-number="2" value="2"><div><p>2</p></div></button>
+            <button class="input" id="three" data-roles="number parsable" data-number="3" value="3"><div><p>3</p></div></button>
+            <button class="input" id="zero" data-roles="number parsable" data-number="0" value="0"><div><p>0</p></div></button>
+            <button class="input" id="decimal-separator" data-roles="decimal-separator parsable" data-decimal-separator="." value="."><div><p>.</p></div></button>
+            <button class="input" id="clear" data-roles="clear" data-clear="c" value="c"><div><p>C</p></div></button>
+            <button class="input" id="sum" data-roles="sum" data-sum="=" value="="><div><p>=</p></div></button>
+        </div>
+        <div id="log">
+            <div id="log-p-wrapper">
+            </div>
+            <div id="log-elipsis-wrapper">
+                <div id="log-elipsis">&#8942;</div>
+            </div>
+        </div>
+    </main>
+    <script src="main_idea-5.js" type="module"></script>
+</body>
+</html>

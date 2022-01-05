@@ -1,0 +1,186 @@
+:root {
+    --trns-base: all 10ms linear;
+    --trns-2: all 300ms ease-out;
+    --trns-tease: all 300ms cubic-bezier(.14,.7,.2,1.31);
+    --base-color: rgb(241, 48, 145);
+    --fade-color: #ff733c;
+    --border-color-light: rgb(243, 243, 243);
+    --border-color-dark: rgb(80, 80, 80);
+    --border-width: 1px;
+    --border-radius: 10px;
+    font-size: 26px;
+    font-family: sans-serif;
+    font-weight: 300;
+}
+
+:root * {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 97vh;
+    background-color: rgb(45, 59, 136);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    all: unset;
+    background-color: rgb(235, 235, 235);
+    text-align: center;
+    transition: var(--trns-base);
+}
+
+.input {
+    position: relative;
+    border-color: var(--fade-color) var(--border-color-dark) var(--border-color-dark) var(--fade-color);
+}
+
+.input > div {
+    position: relative;
+    left: calc( -1 * var(--border-width));
+    top: calc( -1 * var(--border-width));
+    width: calc(100% + (var(--border-width) * 2));
+    height: calc(100% + (var(--border-width) * 2));
+    transition: var(--trns-base);
+}
+
+.input > div > p {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#calc-wrapper > button:hover {
+    background-color: whitesmoke
+}
+
+#calc-wrapper > button:hover:active {
+    border-color: var(--border-color-dark) var(--fade-color) var(--fade-color) var(--border-color-dark);
+    border-width: calc(var(--border-width) * 4) 0 0 calc(var(--border-width) * 4);
+    background-color: rgb(224, 224, 224)
+}
+
+#calc-wrapper, 
+#calc-wrapper > *, 
+#log {
+    border-style: solid;
+    border-width: var(--border-width);
+    border-radius: var(--border-radius);
+}
+
+#calc-wrapper {
+    --space: 10px;
+    background-color: var(--base-color);
+    background: linear-gradient(to bottom right, #ff733c, var(--base-color));
+    width: 500px;
+    height: 500px;
+    display: grid;
+    position: relative;
+    z-index: 1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px repeat(5, 1fr);
+    grid-gap: var(--space);
+    padding: var(--space);
+    border-color: var(--fade-color) var(--border-color-dark) var(--border-color-dark) var(--fade-color);
+}
+
+#output {
+    grid-area: 1 / 1 / 2 / 5;
+    background-color: whitesmoke;
+    text-align: right;
+    font-size: 1.8rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    position: relative;
+    border-color: var(--border-color-dark) var(--fade-color) var(--fade-color) var(--border-color-dark);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+#output::-webkit-scrollbar {
+    height: 4px;
+}
+
+#output::-webkit-scrollbar-thumb {
+    background: rgb(128, 128, 128);
+    border-radius: 4px;
+}
+
+#output span {
+    padding: 0 0.5rem;
+    position: relative;
+    top: 17%;
+    right: 0;
+}
+
+#sum {
+    grid-area: 4 / 4 / 7 / 5;
+}
+
+#content-wrapper {
+    position: relative;
+    box-shadow: 10px 30px 60px 0px rgba(29, 29, 29, 0.74);
+}
+
+#log {
+    --width: 300px;
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    width: var(--width);
+    height: 490px;
+    padding: 0px 0px 0px 74px;
+    border: 12px solid rgb(91, 51, 235);
+    border-left-width: 0;
+    background: rgb(26, 26, 26);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    transition: var(--trns-tease);
+}
+
+#log.calc-log-open {
+    right: calc(-1 * 250px + 10px);
+    box-shadow: 10px 30px 60px 0px rgba(29, 29, 29, 0.74);
+}
+
+#log:hover:not(#log.calc-log-open) {
+    right: -15px;
+}
+
+#log-p-wrapper {
+    height: 100%;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    color: rgb(179, 179, 179);
+    font-size: 0.6rem;
+}
+
+#log-p-wrapper::-webkit-scrollbar {
+    width: 4px;
+    background: rgb(52, 41, 105);
+}
+
+#log-p-wrapper::-webkit-scrollbar-thumb {
+    background: rgb(147, 118, 252);
+}
+
+#log-elipsis-wrapper {
+    position: absolute;
+    right: -12px;
+    top: 0;
+    height: 100%;
+    width: 12px;
+}
+
+#log-elipsis {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: whitesmoke;
+    cursor: pointer;
+}
